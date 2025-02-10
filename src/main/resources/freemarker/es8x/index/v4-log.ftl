@@ -15,7 +15,9 @@
   </#if>
   ,"api-id":"${log.getApiId()}"
   ,"request-id":"${log.getRequestId()}"
+  <#if log.getClientIdentifier()??>
   ,"client-identifier":"${log.getClientIdentifier()}"
+  </#if>
   ,"request-ended":"${log.isRequestEnded()?c}"
   <#if log.getEntrypointRequest()??>
   ,"entrypoint-request": {
