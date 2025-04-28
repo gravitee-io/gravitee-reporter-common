@@ -23,6 +23,7 @@ import io.gravitee.reporter.api.health.EndpointStatus;
 import io.gravitee.reporter.api.http.Metrics;
 import io.gravitee.reporter.api.log.Log;
 import io.gravitee.reporter.api.monitor.Monitor;
+import io.gravitee.reporter.api.v4.common.MetricsDimensions;
 import io.gravitee.reporter.api.v4.log.MessageLog;
 import io.gravitee.reporter.api.v4.metric.MessageMetrics;
 import io.gravitee.reporter.common.formatter.AbstractFormatter;
@@ -112,6 +113,10 @@ public class ElasticsearchFormatter<T extends Reportable>
       return getSource(log, esOptions);
     } else if (reportable instanceof MessageLog log) {
       return getSource(log, esOptions);
+    } else if (
+      reportable instanceof io.gravitee.reporter.api.v4.common.MetricsDimensions metrics
+    ) {
+      getSource(metrics, esOptions);
     }
 
     return null;
@@ -458,6 +463,27 @@ public class ElasticsearchFormatter<T extends Reportable>
     } else {
       data.put("date", sdf.format(reportable.timestamp()));
     }
+  }
+
+  private <T extends MetricsDimensions> Buffer getSource(
+    T metrics,
+    Map<String, Object> esOptions
+  ) {
+    final Map<String, Object> data = new HashMap<>(10);
+
+    addCommonFields(data, metrics, esOptions);
+
+    if (
+      metrics instanceof io.gravitee.reporter.api.v4.metric.ConnectionsMetrics connectionsMetrics
+    ) {
+      data.put("connectionsMetrics", connectionsMetrics);
+    } else if (
+      metrics instanceof io.gravitee.reporter.api.v4.metric.NativeMessageMetrics nativeMessageMetrics
+    ) {
+      data.put("nativeMessageMetrics", nativeMessageMetrics);
+    }
+
+    return generateData("v4-metrics-data-stream.ftl", data);
   }
 
   static final class Fields {
