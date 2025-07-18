@@ -65,6 +65,18 @@ public class EventMetricsFormatter extends SingleValueFormatter<EventMetrics> {
     appendLong(buffer, getValue(downstreamActiveConnections));
     Number upstreamActiveConnections = data.getUpstreamActiveConnections();
     appendLong(buffer, getValue(upstreamActiveConnections));
+    Number downstreamAuthenticationFailuresTotal =
+      data.getDownstreamAuthenticationFailuresTotal();
+    appendLong(buffer, getValue(downstreamAuthenticationFailuresTotal));
+    Number upstreamAuthenticationFailuresTotal =
+      data.getUpstreamAuthenticationFailuresTotal();
+    appendLong(buffer, getValue(upstreamAuthenticationFailuresTotal));
+    Number downstreamAuthorizationSuccessesTotal =
+      data.getDownstreamAuthorizationSuccessesTotal();
+    appendLong(buffer, getValue(downstreamAuthorizationSuccessesTotal));
+    Number upstreamAuthorizationSuccessesTotal =
+      data.getUpstreamAuthorizationSuccessesTotal();
+    appendLong(buffer, getValue(upstreamAuthorizationSuccessesTotal));
 
     return buffer;
   }
