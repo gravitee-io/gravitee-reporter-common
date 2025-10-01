@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.4.1...1.4.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* prevent empty JSON objects for fully excluded event types ([ee04482](https://github.com/gravitee-io/gravitee-reporter-common/commit/ee04482c75db0571a51ab19f7ce67a7ca4f94226))
+
 ## [1.4.1](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.4.0...1.4.1) (2025-01-23)
 
 
