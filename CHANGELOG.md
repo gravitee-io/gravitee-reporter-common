@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.2.3...1.2.4) (2025-10-02)
+
+
+### Bug Fixes
+
+* update orbs, parent-id ([a5dc076](https://github.com/gravitee-io/gravitee-reporter-common/commit/a5dc076793ce012f5d79ae4debb8934a098f58cc))
+
 ## [1.2.3](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.2.2...1.2.3) (2025-02-10)
 
 
