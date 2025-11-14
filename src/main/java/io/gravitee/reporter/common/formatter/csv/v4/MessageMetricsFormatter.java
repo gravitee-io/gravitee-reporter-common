@@ -60,40 +60,7 @@ public class MessageMetricsFormatter
     appendLong(buffer, metrics.getErrorCountIncrement());
     appendBoolean(buffer, metrics.isError());
     appendLong(buffer, metrics.getGatewayLatencyMs());
-    var longAdditionalMetrics = metrics.longAdditionalMetrics();
-    if (longAdditionalMetrics != null) {
-      longAdditionalMetrics
-        .values()
-        .forEach(value -> appendLong(buffer, value));
-    }
-    var doubleAdditionalMetrics = metrics.doubleAdditionalMetrics();
-    if (doubleAdditionalMetrics != null) {
-      doubleAdditionalMetrics
-        .values()
-        .forEach(value -> appendDouble(buffer, value));
-    }
-    var keywordAdditionalMetrics = metrics.keywordAdditionalMetrics();
-    if (keywordAdditionalMetrics != null) {
-      keywordAdditionalMetrics
-        .values()
-        .forEach(value -> appendString(buffer, value));
-    }
-    var boolAdditionalMetrics = metrics.boolAdditionalMetrics();
-    if (boolAdditionalMetrics != null) {
-      boolAdditionalMetrics
-        .values()
-        .forEach(value -> appendBoolean(buffer, value));
-    }
-    var intAdditionalMetrics = metrics.intAdditionalMetrics();
-    if (intAdditionalMetrics != null) {
-      intAdditionalMetrics.values().forEach(value -> appendInt(buffer, value));
-    }
-    var stringAdditionalMetrics = metrics.stringAdditionalMetrics();
-    if (stringAdditionalMetrics != null) {
-      stringAdditionalMetrics
-        .values()
-        .forEach(value -> appendString(buffer, value));
-    }
+    appendAdditional(metrics, buffer);
 
     for (
       Iterator<String> i = customMetrics.keySet().iterator();

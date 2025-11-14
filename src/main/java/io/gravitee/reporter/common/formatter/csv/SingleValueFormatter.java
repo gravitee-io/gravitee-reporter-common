@@ -16,8 +16,10 @@
 package io.gravitee.reporter.common.formatter.csv;
 
 import io.gravitee.reporter.api.Reportable;
+import io.gravitee.reporter.api.v4.metric.WithAdditional;
 import io.gravitee.reporter.common.formatter.AbstractFormatter;
 import io.vertx.core.buffer.Buffer;
+import java.util.Map;
 
 /**
  * @author David BRASSELY (david.brassely at graviteesource.com)
@@ -194,5 +196,48 @@ public abstract class SingleValueFormatter<T extends Reportable>
       }
     }
     return true;
+  }
+
+  public void appendAdditional(WithAdditional withAdditional, Buffer buffer) {
+    Map<String, Long> longAdditionalMetrics =
+      withAdditional.longAdditionalMetrics();
+    if (longAdditionalMetrics != null) {
+      longAdditionalMetrics
+        .values()
+        .forEach(value -> appendLong(buffer, value));
+    }
+    Map<String, Double> doubleAdditionalMetrics =
+      withAdditional.doubleAdditionalMetrics();
+    if (doubleAdditionalMetrics != null) {
+      doubleAdditionalMetrics
+        .values()
+        .forEach(value -> appendDouble(buffer, value));
+    }
+    Map<String, String> keywordAdditionalMetrics =
+      withAdditional.keywordAdditionalMetrics();
+    if (keywordAdditionalMetrics != null) {
+      keywordAdditionalMetrics
+        .values()
+        .forEach(value -> appendString(buffer, value));
+    }
+    Map<String, Boolean> boolAdditionalMetrics =
+      withAdditional.boolAdditionalMetrics();
+    if (boolAdditionalMetrics != null) {
+      boolAdditionalMetrics
+        .values()
+        .forEach(value -> appendBoolean(buffer, value));
+    }
+    Map<String, Integer> intAdditionalMetrics =
+      withAdditional.intAdditionalMetrics();
+    if (intAdditionalMetrics != null) {
+      intAdditionalMetrics.values().forEach(value -> appendInt(buffer, value));
+    }
+    Map<String, String> stringAdditionalMetrics =
+      withAdditional.stringAdditionalMetrics();
+    if (stringAdditionalMetrics != null) {
+      stringAdditionalMetrics
+        .values()
+        .forEach(value -> appendString(buffer, value));
+    }
   }
 }
