@@ -58,4 +58,43 @@
   </#list>
   }
   </#if>
+  <#if (metrics.longAdditionalMetrics())?? || (metrics.doubleAdditionalMetrics())?? || (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())?? || (metrics.intAdditionalMetrics())?? || (metrics.stringAdditionalMetrics())??>
+  ,"additional-metrics": {
+    <#if (metrics.longAdditionalMetrics())??>
+    <#list metrics.longAdditionalMetrics() as propKey, propValue>
+      "${propKey}":${propValue}<#sep>,
+    </#list>
+    <#if (metrics.doubleAdditionalMetrics())?? || (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())?? || (metrics.intAdditionalMetrics())?? || (metrics.stringAdditionalMetrics())??>,</#if>
+    </#if>
+    <#if (metrics.doubleAdditionalMetrics())??>
+      <#list metrics.doubleAdditionalMetrics() as propKey, propValue>
+        "${propKey}":${propValue}<#sep>,
+      </#list>
+      <#if (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())?? || (metrics.intAdditionalMetrics())?? || (metrics.stringAdditionalMetrics())??>,</#if>
+    </#if>
+    <#if (metrics.keywordAdditionalMetrics())??>
+    <#list metrics.keywordAdditionalMetrics() as propKey, propValue>
+      "${propKey}":"${propValue}"<#sep>,
+    </#list>
+        <#if (metrics.boolAdditionalMetrics())?? || (metrics.intAdditionalMetrics())?? || (metrics.stringAdditionalMetrics())??>,</#if>
+    </#if>
+    <#if (metrics.boolAdditionalMetrics())??>
+    <#list metrics.boolAdditionalMetrics() as propKey, propValue>
+      "${propKey}":${propValue?string('true', 'false')}<#sep>,
+    </#list>
+        <#if (metrics.intAdditionalMetrics())?? || (metrics.stringAdditionalMetrics())??>,</#if>
+    </#if>
+    <#if (metrics.intAdditionalMetrics())??>
+    <#list metrics.intAdditionalMetrics() as propKey, propValue>
+      "${propKey}":${propValue}<#sep>,
+    </#list>
+        <#if (metrics.stringAdditionalMetrics())??>,</#if>
+    </#if>
+    <#if (metrics.stringAdditionalMetrics())??>
+    <#list metrics.stringAdditionalMetrics() as propKey, propValue>
+      "${propKey}":"${propValue}"<#sep>,
+    </#list>
+    </#if>
+  }
+  </#if>
 }</@compress>

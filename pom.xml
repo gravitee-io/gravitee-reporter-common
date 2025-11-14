@@ -67,7 +67,8 @@
         <dependency>
             <groupId>io.gravitee.reporter</groupId>
             <artifactId>gravitee-reporter-api</artifactId>
-            <version>${gravitee-reporter-api.version}</version>
+            <!-- TODO remove -->
+            <version>1.36.0-GKO-1563-webhook-metrics-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
 

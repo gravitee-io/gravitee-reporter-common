@@ -136,6 +136,18 @@ public abstract class SingleValueFormatter<T extends Reportable>
     }
   }
 
+  protected void appendDouble(Buffer buffer, double value) {
+    appendDouble(buffer, value, false);
+  }
+
+  void appendDouble(Buffer buffer, double value, boolean last) {
+    buffer.appendString(Double.toString(value));
+
+    if (!last) {
+      buffer.appendByte(FIELD_SEPARATOR);
+    }
+  }
+
   protected void appendBoolean(Buffer buffer, boolean value) {
     appendBoolean(buffer, value, false);
   }
