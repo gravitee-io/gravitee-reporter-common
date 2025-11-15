@@ -69,35 +69,24 @@ public class MetricsFormatter extends SingleValueFormatter<Metrics> {
         ? metrics.getSecurityType().name()
         : null
     );
+    var longAdditionalMetrics = metrics.longAdditionalMetrics();
+    var doubleAdditionalMetrics = metrics.doubleAdditionalMetrics();
+    var keywordAdditionalMetrics = metrics.keywordAdditionalMetrics();
+    var boolAdditionalMetrics = metrics.boolAdditionalMetrics();
+    var intAdditionalMetrics = metrics.intAdditionalMetrics();
+    var stringAdditionalMetrics = metrics.stringAdditionalMetrics();
     appendString(
       buffer,
       metrics.getSecurityToken() != null ? metrics.getApiId() : null,
-      customMetrics.isEmpty()
+      customMetrics.isEmpty() &&
+        longAdditionalMetrics == null &&
+        doubleAdditionalMetrics == null &&
+        keywordAdditionalMetrics == null &&
+        boolAdditionalMetrics == null &&
+        intAdditionalMetrics == null &&
+        stringAdditionalMetrics == null
     );
-    var longAdditionalMetrics = metrics.longAdditionalMetrics();
-    if (longAdditionalMetrics != null) {
-      longAdditionalMetrics
-        .values()
-        .forEach(value -> appendLong(buffer, value));
-    }
-    var doubleAdditionalMetrics = metrics.doubleAdditionalMetrics();
-    if (doubleAdditionalMetrics != null) {
-      doubleAdditionalMetrics
-        .values()
-        .forEach(value -> appendString(buffer, value.toString()));
-    }
-    var keywordAdditionalMetrics = metrics.keywordAdditionalMetrics();
-    if (keywordAdditionalMetrics != null) {
-      keywordAdditionalMetrics
-        .values()
-        .forEach(value -> appendString(buffer, value));
-    }
-    var boolAdditionalMetrics = metrics.boolAdditionalMetrics();
-    if (boolAdditionalMetrics != null) {
-      boolAdditionalMetrics
-        .values()
-        .forEach(value -> appendBoolean(buffer, value));
-    }
+    appendAdditional(metrics, buffer);
 
     for (
       Iterator<String> i = customMetrics.keySet().iterator();
