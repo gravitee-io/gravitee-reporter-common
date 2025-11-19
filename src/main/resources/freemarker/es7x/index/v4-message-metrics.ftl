@@ -22,7 +22,9 @@
   ,"request-id":"${metrics.getRequestId()}"
   ,"api-id":"${metrics.getApiId()}"
   ,"api-name":"${metrics.getApiName()?j_string}"
+  <#if metrics.getClientIdentifier()??>
   ,"client-identifier":"${metrics.getClientIdentifier()}"
+  </#if>
   ,"correlation-id":"${metrics.getCorrelationId()}"
   <#if metrics.getParentCorrelationId()??>
   ,"parent-correlation-id":"${metrics.getParentCorrelationId()}"
@@ -54,7 +56,7 @@
   <#if metrics.getCustomMetrics()??>
   ,"custom": {
   <#list metrics.getCustomMetrics() as propKey, propValue>
-    "${propKey}":"${propValue}"<#sep>,
+    "${propKey}":"${propValue?j_string}"<#sep>,</#sep>
   </#list>
   }
   </#if>
