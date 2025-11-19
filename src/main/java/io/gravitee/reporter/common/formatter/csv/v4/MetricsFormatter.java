@@ -75,7 +75,11 @@ public class MetricsFormatter extends SingleValueFormatter<Metrics> {
       customMetrics.isEmpty()
     );
 
-    for (Iterator<String> i = customMetrics.keySet().iterator(); i.hasNext();) {
+    for (
+      Iterator<String> i = customMetrics.keySet().iterator();
+      i.hasNext();
+
+    ) {
       appendString(buffer, customMetrics.get(i.next()), true, !i.hasNext());
     }
 
