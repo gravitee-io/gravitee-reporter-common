@@ -113,7 +113,7 @@
   <#if metrics.getCustomMetrics()??>
   ,"custom": {
   <#list metrics.getCustomMetrics() as propKey, propValue>
-    "${propKey}":"${propValue}"<#sep>,
+    "${propKey}":"${propValue?j_string}"<#sep>,</#sep>
   </#list>
   }
   </#if>
