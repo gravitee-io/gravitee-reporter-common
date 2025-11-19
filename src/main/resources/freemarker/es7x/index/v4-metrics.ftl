@@ -113,7 +113,7 @@
   <#if metrics.getCustomMetrics()??>
   ,"custom": {
   <#list metrics.getCustomMetrics() as propKey, propValue>
-    "${propKey}":"${propValue}"<#sep>,
+    "${propKey}":"${propValue?j_string}"<#sep>,</#sep>
   </#list>
   }
   </#if>
@@ -133,7 +133,7 @@
     </#if>
     <#if (metrics.keywordAdditionalMetrics())??>
       <#list metrics.keywordAdditionalMetrics() as propKey, propValue>
-        "${propKey}":"${propValue}"<#sep>,
+        "${propKey}":"${propValue?j_string}"<#sep>,
       </#list>
       <#if (metrics.boolAdditionalMetrics())??>,</#if>
     </#if>

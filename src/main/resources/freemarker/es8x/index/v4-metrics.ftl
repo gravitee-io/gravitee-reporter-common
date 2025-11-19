@@ -113,17 +113,17 @@
   <#if metrics.getCustomMetrics()??>
   ,"custom": {
   <#list metrics.getCustomMetrics() as propKey, propValue>
-    "${propKey}":"${propValue}"<#sep>,
+    "${propKey}":"${propValue?j_string}"<#sep>,</#sep>
   </#list>
   }
   </#if>
   <#if (metrics.longAdditionalMetrics())?? || (metrics.doubleAdditionalMetrics())?? || (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())??>
-  ,"additional-metrics": {
+    ,"additional-metrics": {
     <#if (metrics.longAdditionalMetrics())??>
-    <#list metrics.longAdditionalMetrics() as propKey, propValue>
-      "${propKey}":${propValue}<#sep>,
-    </#list>
-    <#if (metrics.doubleAdditionalMetrics())?? || (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())??>,</#if>
+      <#list metrics.longAdditionalMetrics() as propKey, propValue>
+        "${propKey}":${propValue}<#sep>,
+      </#list>
+      <#if (metrics.doubleAdditionalMetrics())?? || (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())??>,</#if>
     </#if>
     <#if (metrics.doubleAdditionalMetrics())??>
       <#list metrics.doubleAdditionalMetrics() as propKey, propValue>
@@ -132,16 +132,16 @@
       <#if (metrics.keywordAdditionalMetrics())?? || (metrics.boolAdditionalMetrics())??>,</#if>
     </#if>
     <#if (metrics.keywordAdditionalMetrics())??>
-    <#list metrics.keywordAdditionalMetrics() as propKey, propValue>
-      "${propKey}":"${propValue}"<#sep>,
-    </#list>
-        <#if (metrics.boolAdditionalMetrics())??>,</#if>
+      <#list metrics.keywordAdditionalMetrics() as propKey, propValue>
+        "${propKey}":"${propValue?j_string}"<#sep>,
+      </#list>
+      <#if (metrics.boolAdditionalMetrics())??>,</#if>
     </#if>
     <#if (metrics.boolAdditionalMetrics())??>
-    <#list metrics.boolAdditionalMetrics() as propKey, propValue>
-      "${propKey}":"${propValue?string('true', 'false')}"<#sep>,
-    </#list>
+      <#list metrics.boolAdditionalMetrics() as propKey, propValue>
+        "${propKey}":"${propValue?string('true', 'false')}"<#sep>,
+      </#list>
     </#if>
-  }
+    }
   </#if>
-}</@compress>
+  }</@compress>
