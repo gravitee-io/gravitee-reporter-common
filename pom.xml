@@ -40,7 +40,7 @@
         <awaitility.version>4.3.0</awaitility.version>
 
         <jackson-dataformat-msgpack.version>0.9.10</jackson-dataformat-msgpack.version>
-        <commons-validator.version>1.10.0</commons-validator.version>
+        <commons-validator.version>1.10.1</commons-validator.version>
     </properties>
 
     <dependencyManagement>
