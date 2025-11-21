@@ -1,3 +1,12 @@
+## [1.3.2](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.3.1...1.3.2) (2025-11-21)
+
+
+### Bug Fixes
+
+* better null value handling in maps ([075cab0](https://github.com/gravitee-io/gravitee-reporter-common/commit/075cab04a44435c50db2c38571d21d9a9bdf2ee9))
+* do not serialize a numeric value into string ([02dc310](https://github.com/gravitee-io/gravitee-reporter-common/commit/02dc31048fd4be1c05dcd5dbef5713774a130e82))
+* support ES 9.x ([47f6c1c](https://github.com/gravitee-io/gravitee-reporter-common/commit/47f6c1cf19adb3a08dc438beab4d7cb7072d662a))
+
 ## [1.3.1](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.3.0...1.3.1) (2025-02-10)
 
 
