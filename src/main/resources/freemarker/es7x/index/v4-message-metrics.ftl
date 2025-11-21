@@ -88,7 +88,7 @@
       </#if>
     <#if (metrics.stringAdditionalMetrics())??>
       <#list metrics.stringAdditionalMetrics() as propKey, propValue>
-        <#assign additionalMetrics = additionalMetrics + ['"' + propKey + '":"' + propValue + '"']>
+        <#assign additionalMetrics = additionalMetrics + ['"' + propKey + '":"' + propValue?j_string + '"']>
       </#list>
     </#if>
     <#if (metrics.jsonAdditionalMetrics())??>

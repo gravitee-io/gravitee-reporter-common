@@ -33,7 +33,7 @@
     "keyword_name": "the name",
     "bool_name": true,
     "int_name": 42,
-    "string_name": "the string name",
+    "string_name": "the \"string\" name",
     "json_name": "{\"hello\":\"world\"}"
   }
 }
