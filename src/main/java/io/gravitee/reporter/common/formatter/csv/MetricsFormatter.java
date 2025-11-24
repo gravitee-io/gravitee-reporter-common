@@ -28,6 +28,7 @@ import java.util.Map;
 public final class MetricsFormatter extends SingleValueFormatter<Metrics> {
 
   public Buffer format0(Metrics metrics) {
+    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(metrics);
     final Map<String, String> customMetrics = metrics.getCustomMetrics();
 
     final Buffer buffer = Buffer.buffer();
@@ -72,9 +73,6 @@ public final class MetricsFormatter extends SingleValueFormatter<Metrics> {
     );
 
     if (!customMetrics.isEmpty()) {
-      ReportableSanitizationUtil.removeCustomMetricsWithNullValues(
-        customMetrics
-      );
       for (
         Iterator<String> i = customMetrics.keySet().iterator();
         i.hasNext();
