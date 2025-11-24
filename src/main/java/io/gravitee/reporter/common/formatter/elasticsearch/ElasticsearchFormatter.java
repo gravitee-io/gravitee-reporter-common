@@ -129,9 +129,7 @@ public class ElasticsearchFormatter<T extends Reportable>
 
     addCommonFields(data, metrics, esOptions);
 
-    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(
-      metrics.getCustomMetrics()
-    );
+    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(metrics);
 
     data.put("metrics", metrics);
 
@@ -326,9 +324,7 @@ public class ElasticsearchFormatter<T extends Reportable>
 
     addCommonFields(data, metrics, esOptions);
 
-    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(
-      metrics.getCustomMetrics()
-    );
+    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(metrics);
 
     data.put("metrics", metrics);
 
@@ -372,9 +368,7 @@ public class ElasticsearchFormatter<T extends Reportable>
 
     addCommonFields(data, metrics, esOptions);
 
-    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(
-      metrics.getCustomMetrics()
-    );
+    ReportableSanitizationUtil.removeCustomMetricsWithNullValues(metrics);
 
     data.put("metrics", metrics);
     data.put(
