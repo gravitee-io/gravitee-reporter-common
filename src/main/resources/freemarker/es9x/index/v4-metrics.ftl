@@ -29,6 +29,12 @@
   ,"api-id":"${metrics.getApiId()}"
   ,"api-name":"${metrics.getApiName()?j_string}"
   </#if>
+  <#if metrics.getOrganizationId()??>
+    ,"org-id":"${metrics.getOrganizationId()}"
+  </#if>
+  <#if metrics.getEnvironmentId()??>
+    ,"env-id":"${metrics.getEnvironmentId()}"
+  </#if>
   <#if metrics.getPlanId()??>
   ,"plan-id":"${metrics.getPlanId()}"
   </#if>
@@ -129,6 +135,12 @@
     }<#sep>,
   </#list>
   ]
+  </#if>
+  <#if metrics.getQuotaCounter()??>
+    ,"quota-counter":${metrics.getQuotaCounter()}
+  </#if>
+  <#if metrics.getQuotaLimit()??>
+    ,"quota-limit":${metrics.getQuotaLimit()}
   </#if>
   <#if metrics.getCustomMetrics()??>
   ,"custom": {

@@ -24,6 +24,8 @@
   ,"request-id":"${metrics.getRequestId()}"
   ,"api-id":"${metrics.getApiId()}"
   ,"api-name":"${metrics.getApiName()?j_string}"
+  ,"org-id":"${metrics.getOrganizationId()}"
+  ,"env-id":"${metrics.getEnvironmentId()}"
   <#if metrics.getClientIdentifier()??>
   ,"client-identifier":"${metrics.getClientIdentifier()}"
   </#if>
@@ -54,6 +56,12 @@
   </#if>
   <#if gatewayLatencyMs??>
   ,"gateway-latency-ms":${gatewayLatencyMs}
+  </#if>
+  <#if metrics.getQuotaCounter()??>
+    ,"quota-counter":${metrics.getQuotaCounter()}
+  </#if>
+  <#if metrics.getQuotaLimit()??>
+    ,"quota-limit":${metrics.getQuotaLimit()}
   </#if>
   <#if metrics.getCustomMetrics()??>
   ,"custom": {
