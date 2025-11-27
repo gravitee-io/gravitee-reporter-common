@@ -16,6 +16,8 @@
   "plan": "e115ea63-7cef-4646-95ea-637cef7646ec",
   "api": "ff3c6c48-53e0-41d6-bc6c-4853e011d656",
   "api-name": "API Name",
+  "org-id": "7e3c7b4c-91c1-4f79-9c2e-3c2d6cfbf890",
+  "env-id": "d4f0f9d2-b2c4-4d8a-a3a0-5324fdad0e73",
   "application": "91f077b0-1204-49e4-b077-b0120419e4f6",
   "local-address": "127.0.0.1",
   "remote-address": "127.0.0.1",
