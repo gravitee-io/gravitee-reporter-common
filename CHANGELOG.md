@@ -1,3 +1,10 @@
+## [1.6.8](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.6.7...1.6.8) (2025-12-03)
+
+
+### Reverts
+
+* Revert "fix: support ES 9.x" ([da4dcd7](https://github.com/gravitee-io/gravitee-reporter-common/commit/da4dcd7f4e18abd2d4f901335ee38697bb2717f5))
+
 ## [1.6.7](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.6.6...1.6.7) (2025-11-25)
 
 
