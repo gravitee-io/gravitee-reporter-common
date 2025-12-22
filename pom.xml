@@ -37,7 +37,7 @@
         <gravitee-gateway-api.version>4.1.0</gravitee-gateway-api.version>
         <gravitee-common.version>4.8.0</gravitee-common.version>
         <gravitee-reporter-api.version>2.0.0</gravitee-reporter-api.version>
-        <gravitee-node.version>4.8.9</gravitee-node.version>
+        <gravitee-node.version>7.18.3</gravitee-node.version>
         <awaitility.version>4.3.0</awaitility.version>
 
         <jackson-dataformat-msgpack.version>0.9.10</jackson-dataformat-msgpack.version>
