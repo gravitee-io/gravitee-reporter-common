@@ -27,8 +27,10 @@
   ,"transaction-id":"${metrics.getTransactionId()}"
   <#if metrics.getApiId()??>
   ,"api-id":"${metrics.getApiId()}"
-  ,"api-name":"${metrics.getApiName()?j_string}"
   </#if>
+    <#if metrics.getApiName()??>
+        ,"api-name":"${metrics.getApiName()?j_string}"
+    </#if>
   <#if metrics.getPlanId()??>
   ,"plan-id":"${metrics.getPlanId()}"
   </#if>
