@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.4.2...1.4.3) (2026-03-05)
+
+
+### Bug Fixes
+
+* handle null api names ([e97ec25](https://github.com/gravitee-io/gravitee-reporter-common/commit/e97ec25b8e2aed7fa6688b0f1113805ade73623d))
+
 ## [1.4.2](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.4.1...1.4.2) (2025-10-01)
 
 
