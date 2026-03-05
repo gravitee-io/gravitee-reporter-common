@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.9.2...1.9.3) (2026-03-05)
+
+
+### Bug Fixes
+
+* avoid template error when api is unknown ([eafe959](https://github.com/gravitee-io/gravitee-reporter-common/commit/eafe959216a44616b1028bafe32ddff8e088b3a1))
+
 ## [1.9.2](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.9.1...1.9.2) (2025-11-25)
 
 
