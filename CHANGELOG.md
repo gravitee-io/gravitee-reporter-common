@@ -1,3 +1,10 @@
+## [1.7.4](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.7.3...1.7.4) (2026-04-21)
+
+
+### Bug Fixes
+
+* update msgpack-core to 0.9.11 to fix security vulnerability ([bd41a6b](https://github.com/gravitee-io/gravitee-reporter-common/commit/bd41a6bcd26fe307bee2b1b3283ce8d6e335048f))
+
 ## [1.7.3](https://github.com/gravitee-io/gravitee-reporter-common/compare/1.7.2...1.7.3) (2026-03-05)
 
 
